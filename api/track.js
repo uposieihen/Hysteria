@@ -2,13 +2,23 @@
 // Vercel Serverless Function
 
 // ===== TELEGRAM CONFIGURATION =====
-// REPLACE WITH YOUR TELEGRAM BOT DETAILS
-const BOT_TOKEN = 'YOUR_BOT_TOKEN';        // e.g., '1234567890:ABCdefGHIjklMNOpqrsTUVwxyz'
-const CHAT_ID = 'YOUR_CHAT_ID';            // e.g., '123456789'
+// Read from environment variables (set in Vercel dashboard)
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const CHAT_ID = process.env.CHAT_ID;
 // ===================================
+
+// Check if credentials are configured
+if (!BOT_TOKEN || !CHAT_ID) {
+    console.error('⚠️ BOT_TOKEN or CHAT_ID not set in environment variables!');
+    console.error('Please add them in Vercel dashboard.');
+}
 
 // Function to send message to Telegram
 async function sendToTelegram(message) {
+    if (!BOT_TOKEN || !CHAT_ID) {
+        throw new Error('Telegram credentials not configured');
+    }
+    
     const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
     
     try {
@@ -25,7 +35,8 @@ async function sendToTelegram(message) {
         });
         
         if (!response.ok) {
-            throw new Error(`Telegram API error: ${response.status}`);
+            const errorData = await response.json();
+            throw new Error(`Telegram API error: ${response.status} - ${JSON.stringify(errorData)}`);
         }
         
         return await response.json();
@@ -43,6 +54,14 @@ export default async function handler(req, res) {
     }
 
     try {
+        // Check if credentials are configured
+        if (!BOT_TOKEN || !CHAT_ID) {
+            return res.status(500).json({ 
+                error: 'Server configuration error',
+                message: 'Telegram credentials not configured'
+            });
+        }
+
         const data = req.body;
         
         // Get real IP from Vercel headers
