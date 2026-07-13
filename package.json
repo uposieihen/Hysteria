@@ -1,13 +1,15 @@
 {
   "name": "hysteria-tracker",
   "version": "1.0.0",
-  "description": "Visitor tracking for Hysteria website",
+  "description": "Hysteria visitor tracker",
   "main": "api/track.js",
   "scripts": {
     "dev": "vercel dev",
-    "deploy": "vercel --prod"
+    "build": "echo 'No build needed'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  },
   "devDependencies": {
     "vercel": "^32.0.0"
   }
