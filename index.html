@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hysteria | Minecraft FPS Booster</title>
+    <title>HYSTERIA | Minecraft Cheats</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background: #080b12;
+            background: #0a0a12;
             color: white;
             overflow-x: hidden;
         }
@@ -24,42 +24,60 @@
             width: 100%;
             height: 100%;
             background:
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 170, .2), transparent 35%),
-                radial-gradient(circle at 80% 30%, rgba(0, 200, 255, .15), transparent 35%),
-                radial-gradient(circle at 50% 80%, rgba(0, 255, 120, .1), transparent 40%);
+                radial-gradient(circle at 20% 20%, rgba(120, 50, 255, .15), transparent 35%),
+                radial-gradient(circle at 80% 30%, rgba(180, 50, 255, .10), transparent 35%),
+                radial-gradient(circle at 50% 80%, rgba(100, 30, 200, .08), transparent 40%);
             z-index: -1;
         }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a12; }
+        ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 10%;
-            backdrop-filter: blur(15px);
+            padding: 20px 10%;
+            backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 20, .4);
+            background: rgba(10, 10, 18, .92);
+            border-bottom: 1px solid rgba(124, 58, 237, .2);
             z-index: 100;
         }
         .logo {
             font-size: 32px;
-            font-weight: 800;
-            color: #00ffae;
-            text-shadow: 0 0 20px rgba(0, 255, 174, .3);
+            font-weight: 900;
+            color: #7c3aed;
+            text-shadow: 0 0 30px rgba(124, 58, 237, .4);
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: white;
+            font-weight: 300;
         }
         nav ul {
             display: flex;
-            gap: 40px;
+            gap: 35px;
             list-style: none;
         }
         nav ul li a {
-            color: white;
+            color: #a0a0b0;
             text-decoration: none;
             transition: .3s;
             font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
         nav ul li a:hover {
-            color: #00ffae;
+            color: #7c3aed;
         }
+
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -69,583 +87,758 @@
             text-align: center;
             padding: 20px;
         }
-        .hero h1 {
-            font-size: 100px;
-            color: #00ffae;
-            text-shadow: 0 0 40px rgba(0, 255, 174, .5);
-            animation: glow 2s ease-in-out infinite alternate;
+        .hero-badge {
+            background: rgba(124, 58, 237, .15);
+            border: 1px solid rgba(124, 58, 237, .3);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 12px;
+            color: #7c3aed;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
-        @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(0, 255, 174, .3); }
-            to { text-shadow: 0 0 60px rgba(0, 255, 174, .7); }
+        .hero h1 {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #7c3aed, #a855f7, #7c3aed);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s ease-in-out infinite;
+            line-height: 1;
+        }
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         .hero h2 {
-            font-size: 34px;
-            margin-top: 15px;
+            font-size: 28px;
             font-weight: 600;
+            margin-top: 10px;
+            color: #e0e0e0;
+        }
+        .hero h2 span {
+            color: #7c3aed;
         }
         .hero p {
             margin-top: 20px;
-            max-width: 800px;
-            color: #cbd5e1;
-            font-size: 20px;
-            line-height: 1.6;
+            max-width: 700px;
+            color: #8888a0;
+            font-size: 18px;
+            line-height: 1.8;
         }
+        .hero-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-primary {
+            padding: 16px 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            border: none;
+            transition: .3s;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 40px rgba(124, 58, 237, .3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 60px rgba(124, 58, 237, .5);
+        }
+        .btn-secondary {
+            padding: 16px 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .15);
+            transition: .3s;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, .12);
+            border-color: rgba(124, 58, 237, .4);
+        }
+
+        /* Stats */
         .stats {
-            margin-top: 50px;
+            margin-top: 60px;
             display: flex;
             gap: 40px;
             flex-wrap: wrap;
             justify-content: center;
         }
         .stat {
-            background: rgba(255, 255, 255, .05);
-            padding: 25px 35px;
-            border-radius: 20px;
-            width: 200px;
-            border: 1px solid rgba(255, 255, 255, .08);
-            transition: .3s;
-        }
-        .stat:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 255, 174, .3);
+            background: rgba(255, 255, 255, .03);
+            padding: 20px 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .06);
         }
         .stat h3 {
-            color: #00ffae;
-            font-size: 40px;
+            color: #7c3aed;
+            font-size: 32px;
+            font-weight: 800;
         }
         .stat p {
-            color: #94a3b8;
-            font-size: 14px;
-            margin-top: 5px;
+            color: #666680;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
         }
+
+        /* Sections */
         section {
-            padding: 100px 10%;
+            padding: 80px 10%;
         }
         .title {
             text-align: center;
-            font-size: 50px;
-            font-weight: 700;
-            margin-bottom: 60px;
-            background: linear-gradient(90deg, #00ffae, #00b7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 20px;
         }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .title span {
+            color: #7c3aed;
         }
-        .card {
-            background: rgba(255, 255, 255, .05);
-            padding: 35px;
-            border-radius: 25px;
-            transition: .3s;
-            border: 1px solid rgba(255, 255, 255, .08);
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 255, 174, .3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
-        }
-        .card h3 {
-            margin-bottom: 15px;
-            color: #00ffae;
-            font-size: 22px;
-        }
-        .card p {
-            color: #cbd5e1;
+        .subtitle {
+            text-align: center;
+            color: #8888a0;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
             line-height: 1.6;
         }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: rgba(255, 255, 255, .03);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            transition: .3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(124, 58, 237, .3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+        }
+        .card .icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        .card h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .card p {
+            color: #8888a0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7c3aed;
+            background: rgba(124, 58, 237, .1);
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(124, 58, 237, .15);
+        }
+
+        .category-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 50px 0 25px 0;
+            color: #e0e0e0;
+        }
+        .category-title span {
+            color: #7c3aed;
+        }
+
+        /* Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
         .ss {
-            height: 220px;
-            border-radius: 25px;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            height: 200px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #14141e, #1a1a28);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 26px;
-            color: #00ffae;
-            border: 1px solid rgba(255, 255, 255, .08);
+            font-size: 18px;
+            color: #7c3aed;
+            border: 1px solid rgba(255, 255, 255, .06);
             transition: .3s;
             font-weight: 600;
+            flex-direction: column;
+            gap: 10px;
         }
         .ss:hover {
+            border-color: rgba(124, 58, 237, .3);
             transform: scale(1.02);
-            border-color: rgba(0, 255, 174, .3);
         }
+        .ss small {
+            font-size: 12px;
+            color: #666680;
+            font-weight: 400;
+        }
+
+        /* Reviews */
         .review {
-            background: rgba(255, 255, 255, .05);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .03);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .06);
             transition: .3s;
         }
         .review:hover {
-            border-color: rgba(0, 255, 174, .3);
+            border-color: rgba(124, 58, 237, .2);
         }
-        .review h4 {
-            margin-top: 10px;
-            color: #00ffae;
-        }
-        .review p {
-            color: #cbd5e1;
-            margin-top: 10px;
-            font-style: italic;
-        }
-        .stars {
-            color: gold;
-            font-size: 28px;
+        .review .stars {
+            color: #ffcc00;
+            font-size: 20px;
             letter-spacing: 2px;
         }
-        .faq {
-            margin-top: 20px;
+        .review h4 {
+            color: white;
+            margin-top: 8px;
+            font-size: 15px;
         }
+        .review p {
+            color: #8888a0;
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* FAQ */
         .faq-item {
-            background: rgba(255, 255, 255, .05);
-            margin-top: 20px;
-            padding: 25px 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .03);
+            margin-top: 16px;
+            padding: 22px 28px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .06);
             transition: .3s;
-            cursor: pointer;
         }
         .faq-item:hover {
-            border-color: rgba(0, 255, 174, .3);
+            border-color: rgba(124, 58, 237, .2);
         }
         .faq-item h3 {
-            color: #00ffae;
-            font-size: 18px;
-            margin-bottom: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
         }
         .faq-item p {
-            color: #cbd5e1;
+            color: #8888a0;
+            margin-top: 8px;
+            font-size: 14px;
             line-height: 1.6;
         }
-        .download {
+
+        /* Download */
+        .download-box {
             text-align: center;
+            background: rgba(124, 58, 237, .05);
+            border: 1px solid rgba(124, 58, 237, .15);
+            border-radius: 30px;
+            padding: 60px 40px;
         }
-        .download h1 {
-            font-size: 70px;
-            font-weight: 700;
-            background: linear-gradient(90deg, #00ffae, #00b7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .download-box h1 {
+            font-size: 52px;
+            font-weight: 800;
         }
-        .download p {
-            color: #cbd5e1;
-            margin-top: 20px;
+        .download-box h1 span {
+            color: #7c3aed;
+        }
+        .download-box p {
+            color: #8888a0;
+            margin-top: 15px;
             font-size: 18px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
-        .btn {
-            margin-top: 50px;
+        .download-btn {
+            margin-top: 35px;
             display: inline-block;
-            padding: 25px 70px;
-            font-size: 28px;
+            padding: 20px 60px;
+            font-size: 22px;
             font-weight: 700;
             text-decoration: none;
-            color: #080b12;
-            border-radius: 20px;
-            background: linear-gradient(90deg, #00ffae, #00b7ff);
-            box-shadow: 0 0 40px rgba(0, 255, 174, .3);
+            color: white;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            box-shadow: 0 0 50px rgba(124, 58, 237, .3);
             transition: .3s;
-            letter-spacing: 1px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        .btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 60px rgba(0, 255, 174, .5);
+        .download-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 70px rgba(124, 58, 237, .5);
         }
+        .download-btn small {
+            font-size: 12px;
+            font-weight: 300;
+            display: block;
+            opacity: .7;
+            margin-top: 4px;
+        }
+
+        /* Minecraft Icons */
+        .mc-icon {
+            display: inline-block;
+            margin-right: 6px;
+        }
+
         footer {
             text-align: center;
             padding: 40px;
-            color: #475569;
-            border-top: 1px solid rgba(255, 255, 255, .05);
+            color: #444460;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, .04);
         }
-        /* Tracking status indicator */
+
         #tracking-status {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 255, 174, 0.1);
-            color: #00ffae;
-            padding: 8px 16px;
+            background: rgba(124, 58, 237, .1);
+            color: #7c3aed;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 12px;
-            border: 1px solid rgba(0, 255, 174, 0.2);
+            font-size: 11px;
+            border: 1px solid rgba(124, 58, 237, .2);
             backdrop-filter: blur(10px);
             z-index: 999;
             display: none;
             font-family: 'Poppins', sans-serif;
         }
-        #tracking-status.active {
-            display: block;
-        }
-        #tracking-status.success {
-            border-color: #00ffae;
-            color: #00ffae;
-        }
-        #tracking-status.error {
-            border-color: #ff4444;
-            color: #ff4444;
-        }
-        /* Responsive */
+        #tracking-status.active { display: block; }
+        #tracking-status.success { border-color: #a855f7; color: #a855f7; }
+        #tracking-status.error { border-color: #7c3aed; color: #7c3aed; }
+
         @media (max-width: 768px) {
-            nav ul {
-                gap: 20px;
-                font-size: 14px;
-            }
-            .hero h1 {
-                font-size: 60px;
-            }
-            .hero h2 {
-                font-size: 24px;
-            }
-            .title {
-                font-size: 32px;
-            }
-            .stats {
-                gap: 20px;
-            }
-            .stat {
-                width: 160px;
-                padding: 20px;
-            }
-            .stat h3 {
-                font-size: 30px;
-            }
-            .download h1 {
-                font-size: 40px;
-            }
-            .btn {
-                padding: 20px 40px;
-                font-size: 22px;
-            }
-            section {
-                padding: 60px 5%;
-            }
+            nav { flex-direction: column; gap: 15px; padding: 15px 5%; }
+            nav ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
+            nav ul li a { font-size: 11px; }
+            .hero h1 { font-size: 60px; }
+            .hero h2 { font-size: 20px; }
+            .title { font-size: 30px; }
+            .download-box h1 { font-size: 32px; }
+            .stats { gap: 15px; }
+            .stat { padding: 15px 20px; }
+            .stat h3 { font-size: 24px; }
+            .btn-primary, .btn-secondary { padding: 14px 30px; font-size: 14px; }
+            .download-btn { padding: 16px 30px; font-size: 18px; }
+            section { padding: 50px 5%; }
         }
         @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px 5%;
-            }
-            nav ul {
-                gap: 15px;
-                font-size: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero h1 {
-                font-size: 40px;
-            }
-            .hero h2 {
-                font-size: 18px;
-            }
-            .hero p {
-                font-size: 16px;
-                padding: 0 10px;
-            }
-            .stat {
-                width: 140px;
-                padding: 15px;
-            }
-            .stat h3 {
-                font-size: 24px;
-            }
+            .hero h1 { font-size: 40px; }
+            .hero h2 { font-size: 16px; }
+            .hero p { font-size: 15px; }
+            .card { padding: 20px; }
         }
     </style>
 </head>
-
 <body>
-    <nav>
-        <div class="logo">HYSTERIA</div>
-        <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#performance">Performance</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#download">Download</a></li>
-        </ul>
-    </nav>
 
-    <section class="hero" id="home">
-        <h1>HYSTERIA</h1>
-        <h2>The Ultimate FPS Booster for Minecraft Java Edition</h2>
-        <p>
-            Designed for Minecraft 1.21+ Fabric, Hysteria delivers smoother gameplay,
-            reduced stuttering and significantly higher frame rates on both low-end
-            and high-end PCs.
-        </p>
-        <div class="stats">
-            <div class="stat">
-                <h3>+300%</h3>
-                <p>FPS Increase</p>
-            </div>
-            <div class="stat">
-                <h3>1.21+</h3>
-                <p>Fabric Support</p>
-            </div>
-            <div class="stat">
-                <h3>2M+</h3>
-                <p>Downloads</p>
-            </div>
-            <div class="stat">
-                <h3>4.9★</h3>
-                <p>User Rating</p>
-            </div>
-        </div>
-    </section>
+<nav>
+    <div class="logo">HYSTERIA<span>.jar</span></div>
+    <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#esp">ESP</a></li>
+        <li><a href="#aimbot">Aimbot</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#download">Download</a></li>
+    </ul>
+</nav>
 
-    <section id="features">
-        <h1 class="title">Why Hysteria?</h1>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">⛏️ Minecraft Premium Cheats</div>
+    <h1>HYSTERIA</h1>
+    <h2>Ultimate <span>Minecraft</span> Cheat Client</h2>
+    <p>
+        Dominate every server with Hysteria — the most advanced, undetectable
+        cheat client for Minecraft Java Edition. Featuring ESP, Aimbot, Fly,
+        Speed, and much more. Compatible with all major anti-cheat systems.
+    </p>
+    <div class="hero-buttons">
+        <a href="#download" class="btn-primary">⬇ Download Hysteria.jar</a>
+        <a href="#features" class="btn-secondary">Explore Features</a>
+    </div>
+    <div class="stats">
+        <div class="stat"><h3>100K+</h3><p>Downloads</p></div>
+        <div class="stat"><h3>99.9%</h3><p>Undetected</p></div>
+        <div class="stat"><h3>4.9★</h3><p>Rating</p></div>
+        <div class="stat"><h3>1.21+</h3><p>Supported</p></div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <h1 class="title">⚡ Premium <span>Features</span></h1>
+    <p class="subtitle">Everything you need to become the best Minecraft player.</p>
+
+    <!-- ESP Section -->
+    <div id="esp">
+        <h2 class="category-title">👁️ <span>ESP</span> (Extra Sensory Perception)</h2>
         <div class="grid">
             <div class="card">
-                <h3>🚀 Massive FPS Gains</h3>
-                <p>Optimized rendering engine and smart resource management for maximum performance.</p>
+                <div class="icon">👤</div>
+                <h3>Player ESP</h3>
+                <p>See all players through walls with distance, health, and name display.</p>
+                <span class="tag">Popular</span>
             </div>
             <div class="card">
-                <h3>⚡ Faster Chunk Loading</h3>
-                <p>Explore worlds faster with reduced loading times and smoother movement.</p>
+                <div class="icon">💀</div>
+                <h3>Mob ESP</h3>
+                <p>Highlight all mobs with their type and health status.</p>
+                <span class="tag">Essential</span>
             </div>
             <div class="card">
-                <h3>🎮 Better Frame Stability</h3>
-                <p>Reduce lag spikes and enjoy a more consistent gameplay experience.</p>
+                <div class="icon">📦</div>
+                <h3>Item ESP</h3>
+                <p>Spot dropped items, chests, and valuable loot from any distance.</p>
+                <span class="tag">Useful</span>
             </div>
             <div class="card">
-                <h3>🖥 Low RAM Usage</h3>
-                <p>Runs efficiently even on older computers and laptops.</p>
+                <div class="icon">🗺️</div>
+                <h3>Radar Hack</h3>
+                <p>See the entire map with every player and entity position marked.</p>
+                <span class="tag">Pro</span>
             </div>
             <div class="card">
-                <h3>🌍 Multiplayer Ready</h3>
-                <p>Works perfectly on servers without affecting gameplay compatibility.</p>
+                <div class="icon">🔄</div>
+                <h3>3D Box ESP</h3>
+                <p>3D bounding boxes around all entities for better tracking.</p>
+                <span class="tag">Visual</span>
             </div>
             <div class="card">
-                <h3>🔧 Fabric Native</h3>
-                <p>Built specifically for Fabric and Minecraft 1.21+.</p>
+                <div class="icon">📊</div>
+                <h3>Player Stats</h3>
+                <p>View detailed player stats: health, armor, potions, and more.</p>
+                <span class="tag">Info</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="performance">
-        <h1 class="title">Performance Preview</h1>
-        <div class="gallery">
-            <div class="ss">Before: 72 FPS</div>
-            <div class="ss">After: 231 FPS</div>
-            <div class="ss">Shader Support</div>
-        </div>
-    </section>
-
-    <section id="reviews">
-        <h1 class="title">Community Reviews</h1>
+    <!-- Movement Section -->
+    <div id="movement">
+        <h2 class="category-title">🚀 <span>Movement</span> &amp; Parkour</h2>
         <div class="grid">
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <h4>SteveCraft</h4>
-                <p>"Went from 90 FPS to over 260 FPS instantly. Absolutely insane."</p>
+            <div class="card">
+                <div class="icon">✈️</div>
+                <h3>Fly Hack</h3>
+                <p>Fly freely in survival mode — undetectable and smooth.</p>
+                <span class="tag">Popular</span>
             </div>
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <h4>PixelDragon</h4>
-                <p>"My laptop struggled to stay above 50 FPS before Hysteria."</p>
+            <div class="card">
+                <div class="icon">💨</div>
+                <h3>Speed Hack</h3>
+                <p>Move faster than normal players with adjustable speed.</p>
+                <span class="tag">Essential</span>
             </div>
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <h4>ShadowPvP</h4>
-                <p>"Finally I can use shaders without my PC sounding like a jet engine."</p>
+            <div class="card">
+                <div class="icon">🦘</div>
+                <h3>High Jump</h3>
+                <p>Jump higher than ever before — reach any height.</p>
+                <span class="tag">Fun</span>
             </div>
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <h4>CraftMaster</h4>
-                <p>"Best optimization mod I've used in years."</p>
+            <div class="card">
+                <div class="icon">🌊</div>
+                <h3>Water Walker</h3>
+                <p>Walk on water like it's solid ground.</p>
+                <span class="tag">Useful</span>
             </div>
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <h4>MineBuilder</h4>
-                <p>"Smooth gameplay, faster chunks and zero crashes."</p>
+            <div class="card">
+                <div class="icon">🧗</div>
+                <h3>Step Up</h3>
+                <p>Step up full blocks without jumping.</p>
+                <span class="tag">Convenient</span>
             </div>
-            <div class="review">
-                <div class="stars">★★★★★</div>
-                <h4>EnderKnight</h4>
-                <p>"This should honestly be part of vanilla Minecraft."</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h1 class="title">Frequently Asked Questions</h1>
-        <div class="faq">
-            <div class="faq-item">
-                <h3>Does Hysteria work with shaders?</h3>
-                <p>Yes, Hysteria was designed to improve performance even while using shaders.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Does it support multiplayer servers?</h3>
-                <p>Yes, the mod works perfectly on multiplayer servers.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What Minecraft versions are supported?</h3>
-                <p>Minecraft Java Edition 1.21 and newer using Fabric Loader.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Is installation difficult?</h3>
-                <p>No. Simply place the mod inside your mods folder and launch the game.</p>
+            <div class="card">
+                <div class="icon">🪂</div>
+                <h3>No Fall Damage</h3>
+                <p>Take zero damage from any fall height.</p>
+                <span class="tag">Survival</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="download" id="download">
-        <h1>Ready to Boost Your FPS?</h1>
-        <p>
-            Join thousands of players already using Hysteria to get smoother gameplay,
-            higher FPS and a better Minecraft experience.
+    <!-- Combat Section -->
+    <div id="combat">
+        <h2 class="category-title">⚔️ <span>Combat</span> &amp; PvP</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🎯</div>
+                <h3>Kill Aura</h3>
+                <p>Automatically attack nearby enemies with perfect aim.</p>
+                <span class="tag">Powerful</span>
+            </div>
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Reach Hack</h3>
+                <p>Hit players from a much greater distance.</p>
+                <span class="tag">PvP</span>
+            </div>
+            <div class="card">
+                <div class="icon">🛡️</div>
+                <h3>Auto Shield</h3>
+                <p>Automatically blocks with shield when attacked.</p>
+                <span class="tag">Defense</span>
+            </div>
+            <div class="card">
+                <div class="icon">⚔️</div>
+                <h3>Critical Hits</h3>
+                <p>Always land critical hits for maximum damage.</p>
+                <span class="tag">Damage</span>
+            </div>
+            <div class="card">
+                <div class="icon">💪</div>
+                <h3>Auto Clicker</h3>
+                <p>Customizable auto-clicker for fast and consistent hits.</p>
+                <span class="tag">Utility</span>
+            </div>
+            <div class="card">
+                <div class="icon">🏹</div>
+                <h3>Bow Aimbot</h3>
+                <p>Automatically aim bows for perfect shots every time.</p>
+                <span class="tag">Archery</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- World Section -->
+    <div id="world">
+        <h2 class="category-title">🌍 <span>World</span> &amp; Utility</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">👻</div>
+                <h3>Ghost Mode</h3>
+                <p>Become invisible to other players and mobs.</p>
+                <span class="tag">Stealth</span>
+            </div>
+            <div class="card">
+                <div class="icon">🧱</div>
+                <h3>X-Ray</h3>
+                <p>See through blocks to find ores, caves, and structures.</p>
+                <span class="tag">Mining</span>
+            </div>
+            <div class="card">
+                <div class="icon">🚪</div>
+                <h3>Phase Hack</h3>
+                <p>Walk through blocks and walls with ease.</p>
+                <span class="tag">Exploit</span>
+            </div>
+            <div class="card">
+                <div class="icon">🔮</div>
+                <h3>Full Bright</h3>
+                <p>Always see perfectly — even in the darkest caves.</p>
+                <span class="tag">Vision</span>
+            </div>
+            <div class="card">
+                <div class="icon">🔄</div>
+                <h3>Auto Tool</h3>
+                <p>Automatically switch to the best tool for the job.</p>
+                <span class="tag">Utility</span>
+            </div>
+            <div class="card">
+                <div class="icon">⛏️</div>
+                <h3>Auto Mine</h3>
+                <p>Automatically mine blocks in a perfect pattern.</p>
+                <span class="tag">AFK</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+    <h1 class="title">🖼️ <span>Preview</span></h1>
+    <p class="subtitle">See Hysteria in action.</p>
+    <div class="gallery">
+        <div class="ss">👤 Player ESP <small>Through walls tracking</small></div>
+        <div class="ss">🧱 X-Ray <small>Find ores instantly</small></div>
+        <div class="ss">✈️ Fly Hack <small>Smooth flight</small></div>
+        <div class="ss">🎯 Kill Aura <small>Auto combat</small></div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+    <h1 class="title">⭐ <span>Reviews</span></h1>
+    <p class="subtitle">What our users say about Hysteria.</p>
+    <div class="grid">
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <h4>MinerPro</h4>
+            <p>"Best Minecraft cheat ever. ESP is insane and completely undetectable."</p>
+        </div>
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <h4>PvPKing</h4>
+            <p>"Kill Aura is flawless. My PvP skills went through the roof!"</p>
+        </div>
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <h4>DiamondHunter</h4>
+            <p>"X-Ray makes finding diamonds so easy. Love it!"</p>
+        </div>
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <h4>SpeedRunner</h4>
+            <p>"Speed hack + Fly = fastest Minecraft player ever."</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <h1 class="title">❓ <span>FAQ</span></h1>
+    <div class="faq">
+        <div class="faq-item">
+            <h3>Is Hysteria undetectable?</h3>
+            <p>Yes! Hysteria uses advanced bypass technology that keeps you safe on all major servers.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Which Minecraft versions are supported?</h3>
+            <p>Hysteria supports Minecraft Java Edition 1.21 and newer.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How to install?</h3>
+            <p>Simply download Hysteria.jar and place it in your mods folder (Fabric required).</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is there a free version?</h3>
+            <p>Yes! We offer a free version with basic ESP and movement features.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Does it work on servers?</h3>
+            <p>Yes! Hysteria works on all multiplayer servers including Hypixel, Mineplex, and more.</p>
+        </div>
+    </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+    <div class="download-box">
+        <h1>⬇ Download <span>Hysteria</span></h1>
+        <p>Join thousands of players and dominate every server today.</p>
+        <a href="hysteria.jar" class="download-btn">
+            ⬇ DOWNLOAD HYSTERIA.JAR
+            <small>Minecraft 1.21+ • Fabric </small>
+        </a>
+        <p style="margin-top: 25px; font-size: 14px; color: #555570;">
+            🔒 100% Safe • Regular Updates • 24/7 Support • Undetectable
         </p>
-        <a class="btn" href="Hysteria.jar">⬇ DOWNLOAD HYSTERIA</a>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        © 2026 Hysteria • Minecraft Java Edition • Fabric FPS Booster
-    </footer>
+<footer>
+    © 2026 Hysteria • Minecraft Cheat Client • For educational purposes only
+</footer>
 
-    <!-- Status indicator -->
-    <div id="tracking-status" class="active">📡 Tracking...</div>
+<!-- Tracking Status -->
+<div id="tracking-status" class="active">📡 Tracking...</div>
 
-    <script>
-        (function() {
-            // ===== CONFIGURATION =====
-            // Replace with your Vercel or Render backend URL
-            // Vercel: https://your-project.vercel.app/api/track
-            // Render: https://your-project.onrender.com/api/track
-            const BACKEND_URL = 'https://hysteria-seven.vercel.app/api/track';
-            // ==========================
+<script>
+    (function() {
+        // ===== CONFIGURATION =====
+        // Replace with your backend URL (Vercel or Render)
+        const BACKEND_URL = 'https://hysteria-seven.vercel.app/api/track';
+        // ==========================
 
-            const statusEl = document.getElementById('tracking-status');
+        const statusEl = document.getElementById('tracking-status');
 
-            function updateStatus(message, type) {
-                if (statusEl) {
-                    statusEl.textContent = message;
-                    statusEl.className = 'active ' + type;
-                    setTimeout(() => {
-                        statusEl.style.display = 'none';
-                    }, 5000);
-                }
+        function updateStatus(message, type) {
+            if (statusEl) {
+                statusEl.textContent = message;
+                statusEl.className = 'active ' + type;
+                setTimeout(() => { statusEl.style.display = 'none'; }, 5000);
             }
+        }
 
-            function sendToBackend(data) {
-                if (!BACKEND_URL || BACKEND_URL === 'https://hysteria.vercel.app/api/track') {
-                    console.warn('⚠️ Backend URL not configured. Please set BACKEND_URL.');
-                    updateStatus('⚠️ Backend not configured', 'error');
-                    return;
-                }
-
-                fetch(BACKEND_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => {
-                    if (!response.ok) throw new Error('Backend error: ' + response.status);
-                    return response.json();
-                })
-                .then(result => {
-                    console.log('✅ Visitor tracked:', result);
-                    updateStatus('✅ Visitor tracked', 'success');
-                })
-                .catch(error => {
-                    console.error('❌ Tracking error:', error);
-                    updateStatus('❌ Tracking failed', 'error');
-                });
+        function sendToBackend(data) {
+            if (!BACKEND_URL || BACKEND_URL === 'https://ninja.vercel.app/api/track') {
+                console.warn('⚠️ Backend URL not configured.');
+                return;
             }
+            fetch(BACKEND_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(r => r.json())
+            .then(() => { updateStatus('✅ Visitor tracked', 'success'); })
+            .catch(() => { updateStatus('❌ Tracking failed', 'error'); });
+        }
 
-            function getVisitorData() {
-                // Try to get IP from ipapi.co
-                fetch('https://ipapi.co/json/')
-                    .then(response => {
-                        if (!response.ok) throw new Error('ipapi.co failed');
-                        return response.json();
-                    })
-                    .then(data => {
-                        const visitorData = {
-                            ip: data.ip || 'unknown',
-                            country: data.country_name || 'unknown',
-                            country_code: data.country_code || 'unknown',
-                            city: data.city || 'unknown',
-                            region: data.region || 'unknown',
-                            latitude: data.latitude || 'unknown',
-                            longitude: data.longitude || 'unknown',
-                            timezone: data.timezone || 'unknown',
-                            isp: data.org || 'unknown',
-                            asn: data.asn || 'unknown',
-                            userAgent: navigator.userAgent || 'unknown',
-                            language: navigator.language || 'unknown',
-                            languages: navigator.languages || [],
-                            screenWidth: screen.width || 'unknown',
-                            screenHeight: screen.height || 'unknown',
-                            colorDepth: screen.colorDepth || 'unknown',
-                            time: new Date().toISOString(),
-                            referrer: document.referrer || 'direct',
-                            page: window.location.href,
-                            title: document.title,
-                            platform: navigator.platform || 'unknown',
-                            hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
-                            deviceMemory: navigator.deviceMemory || 'unknown'
-                        };
-                        sendToBackend(visitorData);
-                    })
-                    .catch(() => {
-                        // Fallback - send what we can
-                        const visitorData = {
-                            ip: 'unknown (ipapi.co failed)',
-                            userAgent: navigator.userAgent || 'unknown',
-                            language: navigator.language || 'unknown',
-                            languages: navigator.languages || [],
-                            screenWidth: screen.width || 'unknown',
-                            screenHeight: screen.height || 'unknown',
-                            colorDepth: screen.colorDepth || 'unknown',
-                            time: new Date().toISOString(),
-                            referrer: document.referrer || 'direct',
-                            page: window.location.href,
-                            title: document.title,
-                            platform: navigator.platform || 'unknown',
-                            hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
-                            deviceMemory: navigator.deviceMemory || 'unknown'
-                        };
-                        sendToBackend(visitorData);
+        function getVisitorData() {
+            fetch('https://ipapi.co/json/')
+                .then(r => r.json())
+                .then(data => {
+                    sendToBackend({
+                        ip: data.ip || 'unknown',
+                        country: data.country_name || 'unknown',
+                        city: data.city || 'unknown',
+                        region: data.region || 'unknown',
+                        isp: data.org || 'unknown',
+                        userAgent: navigator.userAgent || 'unknown',
+                        language: navigator.language || 'unknown',
+                        screenWidth: screen.width || 'unknown',
+                        screenHeight: screen.height || 'unknown',
+                        referrer: document.referrer || 'direct',
+                        page: window.location.href,
+                        time: new Date().toISOString()
                     });
-            }
-
-            // Execute on page load
-            if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                // Small delay to ensure page is fully loaded
-                setTimeout(getVisitorData, 500);
-            } else {
-                document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(getVisitorData, 500);
+                })
+                .catch(() => {
+                    sendToBackend({
+                        ip: 'unknown',
+                        userAgent: navigator.userAgent || 'unknown',
+                        time: new Date().toISOString()
+                    });
                 });
-            }
+        }
 
-            // Also send a second time after 3 seconds (for redundancy)
-            setTimeout(() => {
-                getVisitorData();
-            }, 3000);
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(getVisitorData, 500);
+        } else {
+            document.addEventListener('DOMContentLoaded', () => setTimeout(getVisitorData, 500));
+        }
 
-            // Ping backend every 5 minutes to keep it alive (for Render)
-            setInterval(() => {
-                fetch(BACKEND_URL, { method: 'OPTIONS' })
-                    .then(() => console.log('🔄 Keep-alive ping sent'))
-                    .catch(() => console.log('❌ Ping failed'));
-            }, 300000); // 5 minutes
+        // Keep-alive ping (for Render)
+        setInterval(() => {
+            fetch(BACKEND_URL, { method: 'OPTIONS' }).catch(() => {});
+        }, 300000);
+    })();
+</script>
 
-        })();
-    </script>
 </body>
 </html>
