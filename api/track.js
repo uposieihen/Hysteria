@@ -1,17 +1,17 @@
 // api/track.js
-// Vercel Serverless Function
+// Render.com Server
 
 // ===== TELEGRAM CONFIGURATION =====
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
 // ===================================
 
-export default async function handler(req, res) {
+// Express-like handler for Render
+module.exports = async (req, res) => {
     // Only accept POST requests
     if (req.method !== 'POST') {
         return res.status(405).json({ 
-            error: 'Method not allowed. Use POST.',
-            message: 'This endpoint accepts POST requests only'
+            error: 'Method not allowed. Use POST.'
         });
     }
 
@@ -26,9 +26,10 @@ export default async function handler(req, res) {
 
         const data = req.body;
         
-        // Get real IP from Vercel headers
+        // Get real IP from headers
         const ip = req.headers['x-forwarded-for'] || 
                    req.headers['client-ip'] || 
+                   req.socket.remoteAddress ||
                    data.ip || 'unknown';
 
         const userAgent = req.headers['user-agent'] || data.userAgent || 'unknown';
@@ -36,7 +37,7 @@ export default async function handler(req, res) {
 
         // Prepare message for Telegram
         const message = `
-🆕 <b>New Visitor! (via Vercel)</b>
+🆕 <b>New Visitor! (via Render)</b>
 
 🌐 <b>IP:</b> <code>${ip}</code>
 📍 <b>Country:</b> ${data.country || 'unknown'}
@@ -51,7 +52,7 @@ export default async function handler(req, res) {
 🔗 <b>Referrer:</b> ${data.referrer || 'direct'}
 📄 <b>Page:</b> ${data.page || 'unknown'}
 
-📊 <b>Data source:</b> Vercel Serverless Function
+📊 <b>Data source:</b> Render.com
         `.trim();
 
         // Send to Telegram
@@ -70,7 +71,7 @@ export default async function handler(req, res) {
             message: error.message 
         });
     }
-}
+};
 
 async function sendToTelegram(message) {
     const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
@@ -89,7 +90,7 @@ async function sendToTelegram(message) {
     
     if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(`Telegram API error: ${response.status} - ${JSON.stringify(errorData)}`);
+        throw new Error(`Telegram API error: ${response.status}`);
     }
     
     return await response.json();
